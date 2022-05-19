@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Back4AppMyFavCoffee</string>
+
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+
+    <!-- Paste BOTH strings as required -->
+    <string name="back4app_app_id">Zi2cetcqfuoASJiXDgIM6c2CmbseyzXXymzEFdsP</string>
+    <string name="back4app_client_key">EVINyeeAM1ISyjoAq3XJXMsD5DeF5oSquUPK1Dah</string>
+</resources>
