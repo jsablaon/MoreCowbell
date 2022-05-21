@@ -1,5 +1,6 @@
 package com.isit322.back4appmyfavcoffee
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +8,8 @@ import com.parse.Parse
 import com.parse.ParseObject
 import android.view.Menu
 import android.view.MenuItem
+import android.view.Window
+import android.view.WindowManager
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -16,9 +19,10 @@ import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView
+import android.widget.Toast
 
 
-class MainActivity : AppCompatActivity() {
+public class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Parse.initialize(
