@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/HomePageFragment"> // starting display, should be splash
+
+    // id need to match the name of the Fragment to be displayed
+    // homepage
+    <fragment
+        android:id="@+id/HomePageFragment"
+        android:name="com.isit322.back4appmyfavcoffee.HomePageFragment"
+        android:label="@string/home_page_fragment"
+        tools:layout="@layout/fragment_home_page" />
+    // favorites
+    <fragment
+        android:id="@+id/FavoritesFragment"
+        android:name="com.isit322.back4appmyfavcoffee.FavoritesFragment"
+        android:label="@string/favorite_coffee_shops"
+        tools:layout="@layout/fragment_favorites" />
+    // map
+    <fragment
+        android:id="@+id/MapFragment"
+        android:name="com.isit322.back4appmyfavcoffee.MapFragment"
+        android:label="MAP PAGE"
+        tools:layout="@layout/fragment_map" />
+</navigation>
