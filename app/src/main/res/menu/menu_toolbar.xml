@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    // TODO: update all toolbar navigation symbols
+    // wrench symbol
+    <item
+        android:id="@+id/HomePageFragment"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:title="Home"
+        app:showAsAction="always" />
+    // question mark symbol
+    <item
+        android:id="@+id/FavoritesFragment"
+        android:icon="@android:drawable/ic_menu_help"
+        android:title="Fave"
+        app:showAsAction="always" />
+    // compass symbol
+    <item
+        android:id="@+id/MapFragment"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="MAP"
+        app:showAsAction="always" />
+</menu>
