@@ -7,19 +7,19 @@
     // wrench symbol
     <item
         android:id="@+id/HomePageFragment"
-        android:icon="@android:drawable/ic_menu_preferences"
+        android:icon="@drawable/ic_baseline_home_24"
         android:title="Home"
         app:showAsAction="always" />
     // question mark symbol
     <item
         android:id="@+id/FavoritesFragment"
-        android:icon="@android:drawable/ic_menu_help"
+        android:icon="@drawable/ic_baseline_favorite_24"
         android:title="Fave"
         app:showAsAction="always" />
     // compass symbol
     <item
         android:id="@+id/MapFragment"
-        android:icon="@android:drawable/ic_menu_compass"
+        android:icon="@drawable/ic_baseline_map_24"
         android:title="MAP"
         app:showAsAction="always" />
 </menu>
