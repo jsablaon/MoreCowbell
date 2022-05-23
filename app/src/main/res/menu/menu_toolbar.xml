@@ -3,23 +3,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    // TODO: update all toolbar navigation symbols
-    // wrench symbol
+
     <item
         android:id="@+id/HomePageFragment"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Home"
         app:showAsAction="always" />
-    // question mark symbol
+
     <item
         android:id="@+id/FavoritesFragment"
         android:icon="@drawable/ic_baseline_favorite_24"
         android:title="Fave"
         app:showAsAction="always" />
-    // compass symbol
-    <item
-        android:id="@+id/MapFragment"
-        android:icon="@drawable/ic_baseline_map_24"
-        android:title="MAP"
-        app:showAsAction="always" />
+
+<!--    <item-->
+<!--        android:id="@+id/MapFragment"-->
+<!--        android:icon="@drawable/ic_baseline_map_24"-->
+<!--        android:title="MAP"-->
+<!--        app:showAsAction="always" />-->
 </menu>
