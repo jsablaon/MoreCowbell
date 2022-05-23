@@ -13,6 +13,12 @@
         android:name="com.isit322.back4appmyfavcoffee.HomePageFragment"
         android:label="@string/home_page_fragment"
         tools:layout="@layout/fragment_home_page" />
+    // Prefereence Quiz
+    <fragment
+        android:id="@+id/PreferenceQuiz"
+        android:name="com.isit322.back4appmyfavcoffee.PreferenceQuiz"
+        android:label="Quiz"
+        tools:layout="@layout/fragment_preference_quiz" />
     // favorites
     <fragment
         android:id="@+id/FavoritesFragment"
