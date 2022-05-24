@@ -17,5 +17,9 @@
             android:id="@+id/MapFragment"
             android:icon="@drawable/ic_baseline_map_24"
             android:title="Map" />
+        <item
+            android:id="@+id/MapsActivity"
+            android:icon="@drawable/ic_baseline_map_24"
+            android:title="Google Maps" />
     </group>
 </menu>

@@ -31,4 +31,10 @@
         android:name="com.isit322.back4appmyfavcoffee.MapFragment"
         android:label="MAP PAGE"
         tools:layout="@layout/fragment_map" />
+
+    <fragment
+        android:id="@+id/MapsActivity"
+        android:name="com.isit322.back4appmyfavcoffee.MapsActivity"
+        android:label="Google Maps"
+        tools:layout="@layout/activity_maps" />
 </navigation>
