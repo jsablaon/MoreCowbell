@@ -15,6 +15,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.isit322.back4appmyfavcoffee.MainActivity
+import com.isit322.back4appmyfavcoffee.MapsActivity
 import com.isit322.back4appmyfavcoffee.databinding.ActivityLoginBinding
 
 import com.isit322.back4appmyfavcoffee.R
@@ -100,7 +101,8 @@ class LoginActivity : AppCompatActivity() {
                 loginViewModel.login(username.text.toString(), password.text.toString())
 
                 // TODO: check invalid users
-                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+//                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                val intent = Intent(this@LoginActivity, MapsActivity::class.java)
                 startActivity(intent)
                 finish()
             }

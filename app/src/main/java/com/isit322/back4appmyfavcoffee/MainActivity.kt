@@ -1,5 +1,7 @@
 package com.isit322.back4appmyfavcoffee
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +12,8 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.Window
 import android.view.WindowManager
+import android.widget.Button
+import android.widget.TextView
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -19,7 +23,6 @@ import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView
-import android.widget.Toast
 
 
 public class MainActivity : AppCompatActivity() {
@@ -32,6 +35,15 @@ public class MainActivity : AppCompatActivity() {
                 .server(getString(R.string.back4app_server_url))
                 .build());
         setContentView(R.layout.activity_main)
+
+
+        lateinit var btn_next : Button
+//        btn_next.setOnClickListener {
+//            openActivityForResult()
+////            val intent = Intent(this@MainActivity, MapsActivity::class.java)
+////            startActivity(intent)
+////            finish()
+//        }
 
         val firstObject = ParseObject("FirstClass")
         firstObject.put("message","Hey ! First message from android. Parse is now connected")
@@ -73,4 +85,21 @@ public class MainActivity : AppCompatActivity() {
         return item.onNavDestinationSelected(navController)
                 || super.onOptionsItemSelected(item)
     }
+
+    fun openActivityForResult() {
+        val intent = Intent(this@MainActivity, MapsActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+//    @SuppressLint("MissingSuperCall")
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        if (resultCode == RESULT_OK && requestCode == 123) {
+//            var lat = data?.getStringExtra("location")
+//            var lang = data?.getStringExtra("latlang")
+//            lateinit var txt_address: TextView
+//            txt_address.text= lat+","+lang
+//        }
+//
+//    }
 }
