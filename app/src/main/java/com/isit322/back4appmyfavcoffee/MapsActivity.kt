@@ -28,6 +28,7 @@ import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.api.net.PlacesClient
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener
+import com.google.android.material.appbar.MaterialToolbar
 import com.isit322.back4appmyfavcoffee.BuildConfig.GOOGLE_MAPS_API_KEY
 import com.isit322.back4appmyfavcoffee.databinding.ActivityMapsBinding
 import java.util.*
@@ -90,6 +91,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 Toast.makeText(applicationContext, status.toString(), Toast.LENGTH_SHORT).show()
             }
         })
+
+        // toolbar
+        val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
 //////////////////////////////////
 
 
@@ -124,9 +130,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         setPoiClick(map)
         setMapStyle(map)
         enableMyLocation()
-
-
-
 
     }
 
