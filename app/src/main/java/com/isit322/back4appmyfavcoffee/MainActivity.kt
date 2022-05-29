@@ -36,14 +36,11 @@ public class MainActivity : AppCompatActivity() {
                 .build());
         setContentView(R.layout.activity_main)
 
-
-        lateinit var btn_next : Button
-//        btn_next.setOnClickListener {
-//            openActivityForResult()
-////            val intent = Intent(this@MainActivity, MapsActivity::class.java)
-////            startActivity(intent)
-////            finish()
-//        }
+        var btn_map_activity = findViewById(R.id.btn_map_activity) as Button
+        btn_map_activity.setOnClickListener {
+            val intent = Intent(this@MainActivity, MapsActivity::class.java)
+            startActivity(intent);
+        }
 
         val firstObject = ParseObject("FirstClass")
         firstObject.put("message","Hey ! First message from android. Parse is now connected")
@@ -84,12 +81,6 @@ public class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         return item.onNavDestinationSelected(navController)
                 || super.onOptionsItemSelected(item)
-    }
-
-    fun openActivityForResult() {
-        val intent = Intent(this@MainActivity, MapsActivity::class.java)
-        startActivity(intent)
-        finish()
     }
 
 //    @SuppressLint("MissingSuperCall")
