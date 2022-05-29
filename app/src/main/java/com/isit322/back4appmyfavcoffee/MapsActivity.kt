@@ -13,6 +13,13 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.onNavDestinationSelected
+import androidx.navigation.ui.setupWithNavController
 import com.google.android.gms.common.api.Status
 
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -29,6 +36,7 @@ import com.google.android.libraries.places.api.net.PlacesClient
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.navigation.NavigationView
 import com.isit322.back4appmyfavcoffee.BuildConfig.GOOGLE_MAPS_API_KEY
 import com.isit322.back4appmyfavcoffee.databinding.ActivityMapsBinding
 import java.util.*
@@ -72,7 +80,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             )
         )
 
-
         autocompleteFragment.setOnPlaceSelectedListener(object : PlaceSelectionListener {
             override fun onPlaceSelected(place: Place) {
                 val address = place.address.toString()
@@ -91,6 +98,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 Toast.makeText(applicationContext, status.toString(), Toast.LENGTH_SHORT).show()
             }
         })
+
 
         // toolbar
         val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
@@ -139,25 +147,32 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
-        // Change the map type based on the user's selection.
-        R.id.normal_map -> {
-            map.mapType = GoogleMap.MAP_TYPE_NORMAL
-            true
-        }
-        R.id.hybrid_map -> {
-            map.mapType = GoogleMap.MAP_TYPE_HYBRID
-            true
-        }
-        R.id.satellite_map -> {
-            map.mapType = GoogleMap.MAP_TYPE_SATELLITE
-            true
-        }
-        R.id.terrain_map -> {
-            map.mapType = GoogleMap.MAP_TYPE_TERRAIN
-            true
-        }
-        else -> super.onOptionsItemSelected(item)
+//    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+//        // Change the map type based on the user's selection.
+//        R.id.normal_map -> {
+//            map.mapType = GoogleMap.MAP_TYPE_NORMAL
+//            true
+//        }
+//        R.id.hybrid_map -> {
+//            map.mapType = GoogleMap.MAP_TYPE_HYBRID
+//            true
+//        }
+//        R.id.satellite_map -> {
+//            map.mapType = GoogleMap.MAP_TYPE_SATELLITE
+//            true
+//        }
+//        R.id.terrain_map -> {
+//            map.mapType = GoogleMap.MAP_TYPE_TERRAIN
+//            true
+//        }
+//        else -> super.onOptionsItemSelected(item)
+//    }
+
+    // navigate to a destination when an item's clicked on the toolbar
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment)
+        return item.onNavDestinationSelected(navController)
+                || super.onOptionsItemSelected(item)
     }
 
     private fun setMapLongClick(map: GoogleMap) {
@@ -174,8 +189,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     .position(latLng)
                     .title(getString(R.string.dropped_pin))
                     .snippet(snippet)
-
-
             )
         }
     }

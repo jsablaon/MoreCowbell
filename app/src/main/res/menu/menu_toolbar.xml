@@ -10,11 +10,11 @@
         android:title="Home"
         app:showAsAction="always" />
 
-    <item
-        android:id="@+id/FavoritesFragment"
-        android:icon="@drawable/ic_baseline_favorite_24"
-        android:title="Fave"
-        app:showAsAction="always" />
+<!--    <item-->
+<!--        android:id="@+id/FavoritesFragment"-->
+<!--        android:icon="@drawable/ic_baseline_favorite_24"-->
+<!--        android:title="Fave"-->
+<!--        app:showAsAction="always" />-->
 
 <!--    <item-->
 <!--        android:id="@+id/MapFragment"-->
