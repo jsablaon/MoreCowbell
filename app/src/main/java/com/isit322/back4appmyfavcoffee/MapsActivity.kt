@@ -57,7 +57,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 //////////////////
-        val apiKey = "AIzaSyAr1qIq9Q3w9OAjGoWGj7BHkLlarjlAW9w"
+        val apiKey = "${GOOGLE_MAPS_API_KEY}"
         if (!Places.isInitialized()) {
             Places.initialize(applicationContext, apiKey)
         }
