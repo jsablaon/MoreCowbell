@@ -1,6 +1,7 @@
 package com.isit322.back4appmyfavcoffee
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -82,16 +83,17 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         autocompleteFragment.setOnPlaceSelectedListener(object : PlaceSelectionListener {
             override fun onPlaceSelected(place: Place) {
-                val address = place.address.toString()
 
-                val latlong = "${place.latLng?.latitude!!}::${place.latLng?.longitude!!}"
+                // TODO:refactor - DRY
+                ///////
+                val latitude = place.latLng.latitude
+                val longitude = place.latLng.longitude
+                val seattleLatLng = LatLng(latitude, longitude)
 
-                val resultIntent = Intent()
-
-                resultIntent.putExtra("location", address)
-                resultIntent.putExtra("latlong", latlong)
-                setResult(Activity.RESULT_OK, resultIntent)
-                finish()
+                val zoomLevel = 15f
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(seattleLatLng, zoomLevel))
+                map.addMarker(MarkerOptions().position(seattleLatLng))
+                ///////
             }
 
             override fun onError(status: Status) {
@@ -146,27 +148,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         inflater.inflate(R.menu.map_options, menu)
         return true
     }
-
-//    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
-//        // Change the map type based on the user's selection.
-//        R.id.normal_map -> {
-//            map.mapType = GoogleMap.MAP_TYPE_NORMAL
-//            true
-//        }
-//        R.id.hybrid_map -> {
-//            map.mapType = GoogleMap.MAP_TYPE_HYBRID
-//            true
-//        }
-//        R.id.satellite_map -> {
-//            map.mapType = GoogleMap.MAP_TYPE_SATELLITE
-//            true
-//        }
-//        R.id.terrain_map -> {
-//            map.mapType = GoogleMap.MAP_TYPE_TERRAIN
-//            true
-//        }
-//        else -> super.onOptionsItemSelected(item)
-//    }
 
     // navigate to a destination when an item's clicked on the toolbar
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
