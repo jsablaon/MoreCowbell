@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/johns/Documents/bc/isit322/TeamProject/myFavCoffee-main-V3/MoreCowbell/app/src/main/res/layout/activity_login.xml" value="0.5265625" />
         <entry key="..\:/Users/johns/Documents/bc/isit322/TeamProject/myFavCoffee-main-V3/MoreCowbell/app/src/main/res/layout/activity_main.xml" value="0.342451874366768" />
+        <entry key="..\:/Users/johns/Documents/bc/isit322/TeamProject/myFavCoffee-main-V3/MoreCowbell/app/src/main/res/layout/activity_splash.xml" value="0.5265625" />
         <entry key="..\:/Users/johns/Documents/bc/isit322/TeamProject/myFavCoffee-main-V3/MoreCowbell/app/src/main/res/layout/fragment_favorites.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/johns/Documents/bc/isit322/TeamProject/myFavCoffee-main-V3/MoreCowbell/app/src/main/res/layout/fragment_splash.xml" value="0.5265625" />
         <entry key="..\:/Users/johns/Documents/bc/isit322/TeamProject/myFavCoffee-main-V3/MoreCowbell/app/src/main/res/layout/nav_header.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/johns/Documents/bc/isit322/TeamProject/myFavCoffee-main-V3/MoreCowbell/app/src/main/res/menu/map_options.xml" value="0.32685185185185184" />
         <entry key="..\:/Users/johns/Documents/bc/isit322/TeamProject/myFavCoffee-main-V3/MoreCowbell/app/src/main/res/menu/menu_drawer.xml" value="0.32685185185185184" />

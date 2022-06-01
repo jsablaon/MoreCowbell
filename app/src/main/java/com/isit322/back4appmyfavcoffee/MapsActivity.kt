@@ -46,31 +46,27 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var map: GoogleMap
     private lateinit var binding: ActivityMapsBinding
-
     private val TAG = MapsActivity::class.java.simpleName
     private val REQUEST_LOCATION_PERMISSION = 1
     var placesClient: PlacesClient? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//////////////////
+
         val apiKey = "${GOOGLE_MAPS_API_KEY}"
         if (!Places.isInitialized()) {
             Places.initialize(applicationContext, apiKey)
         }
         placesClient = Places.createClient(this)
-//////////////////////////
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-//////////////////////////////
         val autocompleteFragment =
             supportFragmentManager.findFragmentById(R.id.place_autocomplete_fragment) as AutocompleteSupportFragment?
         autocompleteFragment!!.setPlaceFields(
@@ -83,16 +79,17 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         autocompleteFragment.setOnPlaceSelectedListener(object : PlaceSelectionListener {
             override fun onPlaceSelected(place: Place) {
-
                 // TODO:refactor - DRY
                 ///////
                 val latitude = place.latLng.latitude
                 val longitude = place.latLng.longitude
-                val seattleLatLng = LatLng(latitude, longitude)
-
+                val shopAddress = place.address
+                val shopLatLng = LatLng(latitude, longitude)
                 val zoomLevel = 15f
-                map.moveCamera(CameraUpdateFactory.newLatLngZoom(seattleLatLng, zoomLevel))
-                map.addMarker(MarkerOptions().position(seattleLatLng))
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(shopLatLng, zoomLevel))
+                map.addMarker(
+                    MarkerOptions().position(shopLatLng).title("Address: $shopAddress")
+                )
                 ///////
             }
 
@@ -101,14 +98,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         })
 
-
         // toolbar
         val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-
-//////////////////////////////////
-
-
     }
 
     /**
@@ -123,24 +115,17 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
 
-//        // Add a marker in Sydney and move the camera
-//        val sydney = LatLng(-34.0, 151.0)
-//        map.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-//        map.moveCamera(CameraUpdateFactory.newLatLng(sydney))
-
         val latitude = 47.6062
         val longitude = -122.3321
         val seattleLatLng = LatLng(latitude, longitude)
         val zoomLevel = 15f
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(seattleLatLng, zoomLevel))
-        map.addMarker(MarkerOptions().position(seattleLatLng))
-
+        map.addMarker(MarkerOptions().position(seattleLatLng).title("Emerald City"))
 
         setMapLongClick(map)
         setPoiClick(map)
         setMapStyle(map)
         enableMyLocation()
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -197,25 +182,25 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     R.raw.map_style
                 )
             )
-                if (!success) {
-                    Log.e(TAG, "Style parsing failed.")
-                }
-            } catch (e: Resources.NotFoundException) {
-            Log.e(TAG, "Can't find style. Error: ", e)
+            if (!success) {
+                Log.e(TAG, "Style parsing failed.")
             }
+        } catch (e: Resources.NotFoundException) {
+            Log.e(TAG, "Can't find style. Error: ", e)
+        }
     }
 
-    private fun isPermissionGranted() : Boolean {
+    private fun isPermissionGranted(): Boolean {
         return ContextCompat.checkSelfPermission(
             this,
-            Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+            Manifest.permission.ACCESS_FINE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
     }
 
     private fun enableMyLocation() {
         if (isPermissionGranted()) {
             map.isMyLocationEnabled = true
-        }
-        else {
+        } else {
             ActivityCompat.requestPermissions(
                 this,
                 arrayOf<String>(Manifest.permission.ACCESS_FINE_LOCATION),
@@ -227,7 +212,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<String>,
-        grantResults: IntArray) {
+        grantResults: IntArray
+    ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_LOCATION_PERMISSION) {
             if (grantResults.contains(PackageManager.PERMISSION_GRANTED)) {
@@ -235,13 +221,4 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         }
     }
-
-
-
-
-
-
-
-
-
 }

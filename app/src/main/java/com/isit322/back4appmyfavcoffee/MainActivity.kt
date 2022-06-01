@@ -1,19 +1,12 @@
 package com.isit322.back4appmyfavcoffee
 
-import android.annotation.SuppressLint
 import android.content.Intent
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.parse.Parse
-import com.parse.ParseObject
 import android.view.Menu
 import android.view.MenuItem
-import android.view.Window
-import android.view.WindowManager
 import android.widget.Button
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -21,8 +14,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.navigation.NavigationView
+import com.parse.Parse
+import com.parse.ParseObject
 
 
 public class MainActivity : AppCompatActivity() {
@@ -33,7 +28,8 @@ public class MainActivity : AppCompatActivity() {
                 .applicationId(getString(R.string.back4app_app_id))
                 .clientKey(getString(R.string.back4app_client_key))
                 .server(getString(R.string.back4app_server_url))
-                .build());
+                .build()
+        );
         setContentView(R.layout.activity_main)
 
         var btn_map_activity = findViewById(R.id.btn_map_activity) as Button
@@ -43,12 +39,12 @@ public class MainActivity : AppCompatActivity() {
         }
 
         val firstObject = ParseObject("FirstClass")
-        firstObject.put("message","Hey ! First message from android. Parse is now connected")
+        firstObject.put("message", "Hey ! First message from android. Parse is now connected")
         firstObject.saveInBackground {
-            if (it != null){
+            if (it != null) {
                 it.localizedMessage?.let { message -> Log.e("MainActivity", message) }
-            }else{
-                Log.d("MainActivity","Object saved.")
+            } else {
+                Log.d("MainActivity", "Object saved.")
             }
         }
 
@@ -61,8 +57,12 @@ public class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
         val navView = findViewById<NavigationView>(R.id.nav_view) // drawer
-        NavigationUI.setupWithNavController(navView, navController) // link drawer to navigation controller
-        val drawer = findViewById<DrawerLayout>(R.id.drawer_layout) // gets a ref to the DrawerLayout
+        NavigationUI.setupWithNavController(
+            navView,
+            navController
+        ) // link drawer to navigation controller
+        val drawer =
+            findViewById<DrawerLayout>(R.id.drawer_layout) // gets a ref to the DrawerLayout
         val builder = AppBarConfiguration.Builder(navController.graph)
         // this line means the toolbar will display drawer icon. icon will be on all screens, no UP button
         builder.setOpenableLayout(drawer)
@@ -82,15 +82,4 @@ public class MainActivity : AppCompatActivity() {
         return item.onNavDestinationSelected(navController)
                 || super.onOptionsItemSelected(item)
     }
-
-//    @SuppressLint("MissingSuperCall")
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        if (resultCode == RESULT_OK && requestCode == 123) {
-//            var lat = data?.getStringExtra("location")
-//            var lang = data?.getStringExtra("latlang")
-//            lateinit var txt_address: TextView
-//            txt_address.text= lat+","+lang
-//        }
-//
-//    }
 }
