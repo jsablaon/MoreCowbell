@@ -14,8 +14,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.isit322.back4appmyfavcoffee.MainActivity
-import com.isit322.back4appmyfavcoffee.R
 import com.isit322.back4appmyfavcoffee.databinding.ActivityLoginBinding
+
 
 class LoginActivity : AppCompatActivity() {
 
@@ -106,7 +106,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun updateUiWithUser(model: LoggedInUserView) {
-        val welcome = getString(R.string.welcome)
+        val welcome = getString(com.isit322.back4appmyfavcoffee.R.string.welcome)
         val displayName = model.displayName
         // TODO : initiate successful logged in experience
         Toast.makeText(

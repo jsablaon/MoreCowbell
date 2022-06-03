@@ -38,6 +38,24 @@ public class MainActivity : AppCompatActivity() {
             startActivity(intent);
         }
 
+        var shops2 = findViewById(R.id.shops2) as Button
+        shops2.setOnClickListener {
+            val intent = Intent(this@MainActivity, Shops2Activity::class.java)
+            startActivity(intent);
+        }
+
+        var shops3 = findViewById(R.id.shops3) as Button
+        shops3.setOnClickListener {
+            val intent = Intent(this@MainActivity, Shops3Activity::class.java)
+            startActivity(intent);
+        }
+
+        var shops = findViewById(R.id.shops) as Button
+        shops.setOnClickListener {
+            val intent = Intent(this@MainActivity, ShopsActivity::class.java)
+            startActivity(intent);
+        }
+
         val firstObject = ParseObject("FirstClass")
         firstObject.put("message", "Hey ! First message from android. Parse is now connected")
         firstObject.saveInBackground {

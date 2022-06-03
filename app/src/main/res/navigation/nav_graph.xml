@@ -35,4 +35,5 @@
         android:name="com.isit322.back4appmyfavcoffee.MapsActivity"
         android:label="MAP"
         tools:layout="@layout/activity_maps" />
+
 </navigation>

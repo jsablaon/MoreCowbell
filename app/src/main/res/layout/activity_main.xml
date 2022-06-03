@@ -39,6 +39,33 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <Button
+            android:id="@+id/shops2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="google maps"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/shops3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="google maps"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/shops"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="google maps"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         // uses nav_graph.xml as its navigation graph
 
         <androidx.fragment.app.FragmentContainerView
