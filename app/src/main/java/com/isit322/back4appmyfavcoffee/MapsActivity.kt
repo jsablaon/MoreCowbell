@@ -22,6 +22,8 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.gms.common.api.Status
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -49,6 +51,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private val TAG = MapsActivity::class.java.simpleName
     private val REQUEST_LOCATION_PERMISSION = 1
     var placesClient: PlacesClient? = null
+    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,6 +64,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             Places.initialize(applicationContext, apiKey)
         }
         placesClient = Places.createClient(this)
+
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
@@ -85,7 +91,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 val longitude = place.latLng.longitude
                 val shopAddress = place.address
                 val shopLatLng = LatLng(latitude, longitude)
-                val zoomLevel = 15f
+                val zoomLevel = 12f
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(shopLatLng, zoomLevel))
                 map.addMarker(
                     MarkerOptions().position(shopLatLng).title("Address: $shopAddress")
@@ -118,9 +124,59 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val latitude = 47.6062
         val longitude = -122.3321
         val seattleLatLng = LatLng(latitude, longitude)
-        val zoomLevel = 15f
+        val zoomLevel = 12f
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(seattleLatLng, zoomLevel))
         map.addMarker(MarkerOptions().position(seattleLatLng).title("Emerald City"))
+
+        // preset markers on map
+        // ideally pull location from db when db is complete
+        // seattle shop1-shop5
+        val shop1 = LatLng(47.6156928534968, -122.32064786604806)
+        map.addMarker(MarkerOptions().position(shop1).title("capitol coffee works"))
+
+        val shop2 = LatLng(47.62298866949087, -122.33523547659989)
+        map.addMarker(MarkerOptions().position(shop2).title("cascade coffee works"))
+
+        val shop3 = LatLng(47.609796628653754, -122.33627420053199)
+        map.addMarker(MarkerOptions().position(shop3).title("pegasus coffee bar"))
+
+        val shop4 = LatLng(47.6223443703369, -122.32574978042835)
+        map.addMarker(MarkerOptions().position(shop4).title("analog coffee"))
+
+        val shop5 = LatLng(47.600937978742735, -122.33134633216545)
+        map.addMarker(MarkerOptions().position(shop5).title("elm coffee roasters"))
+
+        // san diego shop6-shop10
+        val shop6 = LatLng(32.75203981660922, -117.15767389578889)
+        map.addMarker(MarkerOptions().position(shop6).title("better buzz coffee"))
+
+        val shop7 = LatLng(32.769073918813696, -117.1219683295316)
+        map.addMarker(MarkerOptions().position(shop7).title("dark horse coffee roasters"))
+
+        val shop8 = LatLng(32.73355846223757, -117.1288347845811)
+        map.addMarker(MarkerOptions().position(shop8).title("seven seas roasting company"))
+
+        val shop9 = LatLng(32.763765406884495, -117.14231814239241)
+        map.addMarker(MarkerOptions().position(shop9).title("communal coffee"))
+
+        val shop10 = LatLng(32.831998504844876, -117.18406459139895)
+        map.addMarker(MarkerOptions().position(shop10).title("the forum coffee house"))
+
+        // bellevue shops11-shop15
+        val shop11 = LatLng(47.58696894748818, -122.14311717468456)
+        map.addMarker(MarkerOptions().position(shop11).title("5 stones coffee co."))
+
+        val shop12 = LatLng(47.58349527874228, -122.14003040816425)
+        map.addMarker(MarkerOptions().position(shop12).title("cypress coffee company"))
+
+        val shop13 = LatLng(47.578856597606, -122.169755821256)
+        map.addMarker(MarkerOptions().position(shop13).title("mini's coffee & donuts"))
+
+        val shop14 = LatLng(47.610708765945525, -122.17898864841133)
+        map.addMarker(MarkerOptions().position(shop14).title("copper kettle coffee bar"))
+
+        val shop15 = LatLng(47.617545478996725, -122.18722706839905)
+        map.addMarker(MarkerOptions().position(shop15).title("woods coffee"))
 
         setMapLongClick(map)
         setPoiClick(map)

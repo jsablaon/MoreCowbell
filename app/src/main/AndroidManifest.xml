@@ -35,7 +35,7 @@
         <activity
             android:name=".MapsActivity"
             android:exported="true"
-            android:label="@string/title_activity_maps">
+            android:label="My Fav Coffee Maps">
 <!--            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">-->
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
