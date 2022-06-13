@@ -4,8 +4,8 @@
     <string name="back4app_server_url">https://parseapi.back4app.com/</string>
 
     <!-- Paste BOTH strings as required -->
-    <string name="back4app_app_id">Zi2cetcqfuoASJiXDgIM6c2CmbseyzXXymzEFdsP</string>
-    <string name="back4app_client_key">EVINyeeAM1ISyjoAq3XJXMsD5DeF5oSquUPK1Dah</string>
+    <string name="back4app_app_id">JjDYartA6qiQAhhXUSxODa2Qtx5lbzmmXZ31GBj2</string>
+    <string name="back4app_client_key">Xxe0m4aS0NsecJUAs9DM7OZAW3kEiUhZcqsKZuzS</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="home_page_fragment">Home Page fragment</string>
     <string name="favorite_coffee_shops">Favorite Coffee Shops</string>
