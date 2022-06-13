@@ -1,14 +1,11 @@
 package com.isit322.back4appmyfavcoffee
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-
-import com.google.android.material.snackbar.Snackbar
+import androidx.fragment.app.Fragment
 import com.isit322.back4appmyfavcoffee.databinding.FragmentPreferenceQuizBinding
 
 
@@ -35,12 +32,12 @@ class PreferenceQuiz : Fragment() {
                 val text = "Thank you successfully submitted"
                 Toast.makeText(activity, text, Toast.LENGTH_LONG).show()
 
-                }
             }
-
-
-            return view
         }
+
+
+        return view
     }
+}
 
 

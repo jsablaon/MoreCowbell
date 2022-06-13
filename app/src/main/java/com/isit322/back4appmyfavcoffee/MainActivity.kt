@@ -2,7 +2,6 @@ package com.isit322.back4appmyfavcoffee
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
@@ -16,36 +15,18 @@ import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.navigation.NavigationView
-import com.parse.Parse
-import com.parse.ParseObject
 
 
 public class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Parse.initialize(
-            Parse.Configuration.Builder(this)
-                .applicationId(getString(R.string.back4app_app_id))
-                .clientKey(getString(R.string.back4app_client_key))
-                .server(getString(R.string.back4app_server_url))
-                .build()
-        );
+
         setContentView(R.layout.activity_main)
 
         var btn_map_activity = findViewById(R.id.btn_map_activity) as Button
         btn_map_activity.setOnClickListener {
             val intent = Intent(this@MainActivity, MapsActivity::class.java)
             startActivity(intent);
-        }
-
-        val firstObject = ParseObject("FirstClass")
-        firstObject.put("message", "Hey ! First message from android. Parse is now connected")
-        firstObject.saveInBackground {
-            if (it != null) {
-                it.localizedMessage?.let { message -> Log.e("MainActivity", message) }
-            } else {
-                Log.d("MainActivity", "Object saved.")
-            }
         }
 
         // toolbar
