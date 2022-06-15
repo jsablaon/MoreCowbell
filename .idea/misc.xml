@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/johns/Documents/bc/isit322/TeamProject/myFavCoffee-main-V3/MoreCowbell/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.26506024096385544" />
+        <entry key="..\:/Users/johns/Documents/bc/isit322/TeamProject/myFavCoffee-main-V3/MoreCowbell/app/src/main/res/layout-w936dp/activity_login.xml" value="0.28039617486338797" />
         <entry key="..\:/Users/johns/Documents/bc/isit322/TeamProject/myFavCoffee-main-V3/MoreCowbell/app/src/main/res/layout/activity_login.xml" value="0.5265625" />
         <entry key="..\:/Users/johns/Documents/bc/isit322/TeamProject/myFavCoffee-main-V3/MoreCowbell/app/src/main/res/layout/activity_main.xml" value="0.342451874366768" />
+        <entry key="..\:/Users/johns/Documents/bc/isit322/TeamProject/myFavCoffee-main-V3/MoreCowbell/app/src/main/res/layout/activity_maps.xml" value="0.25455927051671734" />
         <entry key="..\:/Users/johns/Documents/bc/isit322/TeamProject/myFavCoffee-main-V3/MoreCowbell/app/src/main/res/layout/activity_splash.xml" value="0.5265625" />
         <entry key="..\:/Users/johns/Documents/bc/isit322/TeamProject/myFavCoffee-main-V3/MoreCowbell/app/src/main/res/layout/fragment_favorites.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/johns/Documents/bc/isit322/TeamProject/myFavCoffee-main-V3/MoreCowbell/app/src/main/res/layout/fragment_preference_quiz.xml" value="0.2907608695652174" />
