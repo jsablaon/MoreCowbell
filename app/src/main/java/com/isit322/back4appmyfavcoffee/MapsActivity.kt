@@ -1,14 +1,14 @@
 package com.isit322.back4appmyfavcoffee
 
 import android.Manifest
-import android.content.Intent
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -24,6 +24,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MapStyleOptions
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.Place
@@ -35,7 +36,7 @@ import com.isit322.back4appmyfavcoffee.BuildConfig.GOOGLE_MAPS_API_KEY
 import com.isit322.back4appmyfavcoffee.databinding.ActivityMapsBinding
 import java.util.*
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private lateinit var map: GoogleMap
     private lateinit var binding: ActivityMapsBinding
@@ -45,6 +46,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     lateinit var dbObj: DBOjects
     lateinit var helper: DbHelper
+    var markerId = -1
+    lateinit var menuSelected: Food
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +69,22 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         placesClient = Places.createClient(this)
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+
+        val goToMenuButton = findViewById<Button>(R.id.GoToMenu)
+        goToMenuButton.setOnClickListener{
+            println("++++++++++++++++++++marker id: ${markerId}")
+            if(markerId != -1){
+                menuSelected = dbObj.foods[markerId-1]
+                Toast.makeText(this, "${menuSelected.FoodName}", Toast.LENGTH_SHORT).show()
+                // TODO: navigate to menu activity to display menu
+//            val intent = Intent(this, MenuActivity::class.java)
+//            intent.putExtra("selectedShop", dbObj.CoffeeShop[markerId])
+//            intent.putExtra("selectedShopMenu", dbObj.Menus[markerId])  //*** navigate to mock menu page
+//            startActivity(intent)
+            } else {
+                Toast.makeText(this, "Please select a coffee shop to view menu", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
@@ -94,7 +113,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(shopLatLng, zoomLevel))
                 map.addMarker(
                     MarkerOptions().position(shopLatLng).title("Address: $shopAddress")
-                )
+                )?.tag = -1
             }
 
             override fun onError(status: Status) {
@@ -128,20 +147,30 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         var seattleLatLng = LatLng(latitude, longitude)
         var zoomLevel = 12f
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(seattleLatLng, zoomLevel))
-        map.addMarker(MarkerOptions().position(seattleLatLng).title("Emerald City"))
+        map.addMarker(MarkerOptions().position(seattleLatLng).title("Emerald City"))?.tag = -1
+        map.setOnMarkerClickListener(this)
 
         // set markers on the map
         for (item: CoffeeShop in dbObj.coffeeShops) {
             latitude = item.Latitude
             longitude = item.Longitude
             var currentMarker = LatLng(latitude, longitude)
-            map.addMarker(MarkerOptions().position(currentMarker).title(item.ShopName))
+            map.addMarker(MarkerOptions().position(currentMarker).title(item.ShopName))?.tag = item.ShopId
+            map.setOnMarkerClickListener(this)
         }
 
         setMapLongClick(map)
         setPoiClick(map)
         setMapStyle(map)
         enableMyLocation()
+    }
+
+    override fun onMarkerClick(marker: Marker) : Boolean {
+        markerId = marker.tag.toString().toInt()
+        if(markerId != null){
+            println("+++++++++++++++++++++++++++++++++++++++marker tag: ${markerId}")
+        }
+        return false
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -182,6 +211,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     .position(poi.latLng)
                     .title(poi.name)
             )
+            poiMarker?.tag = -1
             if (poiMarker != null) {
                 poiMarker.showInfoWindow()
             }
@@ -213,6 +243,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         ) == PackageManager.PERMISSION_GRANTED
     }
 
+    @SuppressLint("MissingPermission")
     private fun enableMyLocation() {
         if (isPermissionGranted()) {
             map.isMyLocationEnabled = true
