@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".PreferenceQuizActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="53dp"
+            android:layout_above="@id/title"
+            android:layout_gravity="top|center"
+            android:layout_margin="20dp"
+            android:text="Please Choose from the following options:"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/coffeeGroup"
+            android:text="Main Coffee:"
+            android:textStyle="bold|italic" />
+
+        <RadioGroup
+            android:id="@+id/coffeeGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+            <RadioButton android:id="@+id/Espresso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Espresso"
+                android:onClick="onRadioButtonClicked"/>
+            <RadioButton
+                android:id="@+id/Latte"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Latte"
+                android:onClick="onRadioButtonClicked"/>
+
+            <RadioButton android:id="@+id/IcedCoffee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Iced Coffee"
+                android:onClick="onRadioButtonClicked"/>
+        </RadioGroup>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold|italic"
+            android:text="Coffee Mixed:" />
+
+        <RadioGroup
+            android:id="@+id/coffee_group2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/HotChocolate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hot Chocolate"
+                android:onClick="onRadioButtonClicked2"/>
+
+            <RadioButton android:id="@+id/WhiteChocolate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="White Chocolate Mocha"
+                android:onClick="onRadioButtonClicked2"/>
+
+            <RadioButton android:id="@+id/CaramelVanilla"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Caramel Vanilla"
+                android:onClick="onRadioButtonClicked2"/>
+
+            <RadioButton android:id="@+id/NitroColdBrew"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nitro Cold Brew"
+                android:onClick="onRadioButtonClicked2"/>
+
+            <RadioButton android:id="@+id/Cappuccino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cappuccino"
+                android:onClick="onRadioButtonClicked2"/>
+
+            <RadioButton android:id="@+id/Frappuccino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Frappuccino"
+                android:onClick="onRadioButtonClicked2"/>
+        </RadioGroup>
+
+        <!--  Breakfast  -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold|italic"
+            android:text="Breakfast:" />
+
+        <RadioGroup
+            android:id="@+id/breakfast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton android:id="@+id/panini"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Panini"
+                android:onClick="onRadioButtonClicked3"/>
+
+            <RadioButton android:id="@+id/sandwich"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sandwich"
+                android:onClick="onRadioButtonClicked3"/>
+
+            <RadioButton android:id="@+id/donuts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Donuts"
+                android:onClick="onRadioButtonClicked3"/>
+
+            <RadioButton android:id="@+id/Bagels"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bagels"
+                android:onClick="onRadioButtonClicked3"/>
+
+            <RadioButton android:id="@+id/croissant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Croissant"
+                android:onClick="onRadioButtonClicked3"/>
+
+            <RadioButton android:id="@+id/cupcakes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cupcakes"
+                android:onClick="onRadioButtonClicked3"/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_margin="16dp"
+            android:text="Submit" />
+
+
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

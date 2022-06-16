@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFavCoffee">
-
+        <activity
+            android:name=".PreferenceQuizActivity"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -34,12 +36,14 @@
             android:name=".MapsActivity"
             android:exported="true"
             android:label="My Fav Coffee Maps">
-<!--            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- android:theme="@style/Theme.AppCompat.Light.DarkActionBar"> -->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".ui.login.LoginActivity"
@@ -75,4 +79,5 @@
             android:name="com.parse.CLIENT_KEY"
             android:value="@string/back4app_client_key" />
     </application>
+
 </manifest>
