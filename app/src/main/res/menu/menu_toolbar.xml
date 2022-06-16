@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/HomePageFragment"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:title="Home"
-        app:showAsAction="always" />
+        android:id="@+id/log_out"
+        android:icon="@drawable/ic_baseline_power_settings_new_24"
+        app:showAsAction="always"
+        android:title="Log Out" />
 </menu>
