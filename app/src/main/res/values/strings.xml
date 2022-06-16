@@ -1,13 +1,12 @@
 <resources>
     <string name="app_name">MyFavCoffee</string>
-
     <string name="back4app_server_url">https://parseapi.back4app.com/</string>
 
     <!-- Paste BOTH strings as required -->
     <string name="back4app_app_id">JjDYartA6qiQAhhXUSxODa2Qtx5lbzmmXZ31GBj2</string>
     <string name="back4app_client_key">Xxe0m4aS0NsecJUAs9DM7OZAW3kEiUhZcqsKZuzS</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="home_page_fragment">Home Page fragment</string>
+    <string name="home_page_fragment">Home</string>
     <string name="favorite_coffee_shops">Favorite Coffee Shops</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -22,7 +21,6 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_maps">MapsActivity</string>
-
     <string name="normal_map">Normal Map</string>
     <string name="hybrid_map">Hybrid Map</string>
     <string name="satellite_map">Satellite Map</string>

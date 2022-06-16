@@ -15,6 +15,8 @@ import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.navigation.NavigationView
+import com.isit322.back4appmyfavcoffee.ui.login.LoginActivity
+import com.parse.ParseUser
 
 
 public class MainActivity : AppCompatActivity() {
@@ -60,7 +62,19 @@ public class MainActivity : AppCompatActivity() {
     // navigate to a destination when an item's clicked on the toolbar
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
+        onLogoutButton();
         return item.onNavDestinationSelected(navController)
                 || super.onOptionsItemSelected(item)
+    }
+
+    // user logged out the session
+    fun onLogoutButton() {
+        // navigate backwards to Login screen.
+        ParseUser.logOut()
+        val i = Intent(this, LoginActivity::class.java)
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(i)
+        finish()
     }
 }
