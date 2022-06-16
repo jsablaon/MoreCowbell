@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.isit322.back4appmyfavcoffee.MainActivity
+import com.isit322.back4appmyfavcoffee.PreferenceQuizActivity
 import com.isit322.back4appmyfavcoffee.R
 import com.isit322.back4appmyfavcoffee.databinding.ActivityLoginBinding
 
@@ -98,7 +99,7 @@ class LoginActivity : AppCompatActivity() {
                 loginViewModel.login(username.text.toString(), password.text.toString())
 
                 // TODO: check invalid users
-                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                val intent = Intent(this@LoginActivity, PreferenceQuizActivity::class.java)
                 startActivity(intent)
                 finish()
             }
