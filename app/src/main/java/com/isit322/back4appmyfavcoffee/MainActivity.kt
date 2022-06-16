@@ -69,7 +69,7 @@ public class MainActivity : AppCompatActivity() {
 
     // user logged out the session
     fun onLogoutButton() {
-        // navigate backwards to Login screen
+        // navigate backwards to Login screen.
         ParseUser.logOut()
         val i = Intent(this, LoginActivity::class.java)
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
