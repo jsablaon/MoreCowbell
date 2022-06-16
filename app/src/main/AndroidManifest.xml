@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFavCoffee">
         <activity
+            android:name=".ShopActivity"
+            android:exported="false" />
+        <activity
             android:name=".PreferenceQuizActivity"
             android:exported="false" />
         <!--

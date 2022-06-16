@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShopActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/shopName"
+        android:layout_width="412dp"
+        android:layout_height="114dp"
+        android:fontFamily="@font/abril_fatface"
+        android:text="Shop Name"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.09" />
+
+    <ImageView
+        android:id="@+id/shopLogo"
+        android:layout_width="177dp"
+        android:layout_height="143dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shopName"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/coffee2" />
+
+    <CheckBox
+        android:id="@+id/favoriteCheckBox"
+        android:layout_width="118dp"
+        android:layout_height="61dp"
+        android:fontFamily="@font/judson"
+        android:text="Favorite"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toEndOf="@+id/shopLogo"
+        app:layout_constraintTop_toBottomOf="@+id/shopName"
+        app:layout_constraintVertical_bias="0.064" />
+
+    <CheckBox
+        android:id="@+id/itemCheckBox1"
+        android:layout_width="230dp"
+        android:layout_height="45dp"
+        android:fontFamily="@font/judson"
+        android:text="item 1"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/itemCheckBox2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shopLogo"
+        app:layout_constraintVertical_bias="0.818" />
+
+    <CheckBox
+        android:id="@+id/itemCheckBox2"
+        android:layout_width="230dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/judson"
+        android:text="item 2"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/itemCheckBox3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/itemCheckBox3"
+        android:layout_width="230dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/judson"
+        android:text="item 3"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/itemCheckBox4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/itemCheckBox4"
+        android:layout_width="230dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="80dp"
+        android:fontFamily="@font/judson"
+        android:text="item 4"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/updateButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/updateButton"
+        android:layout_width="130dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/judson"
+        android:text="Update"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/shopHomeButton"
+        android:layout_width="130dp"
+        android:layout_height="45dp"
+        android:fontFamily="@font/judson"
+        android:text="Home"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.881"
+        app:layout_constraintStart_toEndOf="@+id/updateButton"
+        app:layout_constraintTop_toBottomOf="@+id/itemCheckBox4"
+        app:layout_constraintVertical_bias="0.766" />
+</androidx.constraintlayout.widget.ConstraintLayout>
