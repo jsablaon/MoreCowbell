@@ -2,6 +2,7 @@ package com.isit322.back4appmyfavcoffee
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.os.Bundle
@@ -74,13 +75,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         goToMenuButton.setOnClickListener{
             println("++++++++++++++++++++marker id: ${markerId}")
             if(markerId != -1){
-                menuSelected = dbObj.foods[markerId-1]
-                Toast.makeText(this, "${menuSelected.FoodName}", Toast.LENGTH_SHORT).show()
+//                menuSelected = dbObj.foods[markerId-1]
+//                Toast.makeText(this, "${menuSelected.FoodName}", Toast.LENGTH_SHORT).show()
                 // TODO: navigate to menu activity to display menu
-//            val intent = Intent(this, MenuActivity::class.java)
-//            intent.putExtra("selectedShop", dbObj.CoffeeShop[markerId])
+            val intent = Intent(this, ShopActivity::class.java)
+//            intent.putExtra("selectedShop", dbObj.coffeeShops[markerId])
 //            intent.putExtra("selectedShopMenu", dbObj.Menus[markerId])  //*** navigate to mock menu page
-//            startActivity(intent)
+            startActivity(intent)
             } else {
                 Toast.makeText(this, "Please select a coffee shop to view menu", Toast.LENGTH_SHORT).show()
             }
@@ -169,6 +170,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         markerId = marker.tag.toString().toInt()
         if(markerId != null){
             println("+++++++++++++++++++++++++++++++++++++++marker tag: ${markerId}")
+            menuSelected = dbObj.foods[markerId-1]
+            Toast.makeText(this, "${menuSelected.FoodName}", Toast.LENGTH_SHORT).show()
         }
         return false
     }
