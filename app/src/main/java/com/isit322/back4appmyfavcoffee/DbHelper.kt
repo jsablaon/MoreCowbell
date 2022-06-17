@@ -123,10 +123,10 @@ public class DbHelper() {
 }
 
 public class CoffeeShop(
-    var pShopId: Int,
-    var pShopName: String,
-    var pLatitude: Double,
-    var pLongitude: Double
+     pShopId: Int,
+     pShopName: String,
+     pLatitude: Double,
+     pLongitude: Double
 ) {
     var ShopId: Int = pShopId
     var ShopName: String = pShopName
@@ -134,16 +134,16 @@ public class CoffeeShop(
     var Longitude: Double = pLongitude
 }
 
-public class Food(var pFoodId: Int, var pFoodName: String) {
+public class Food(pFoodId: Int, pFoodName: String) {
     var FoodId: Int = pFoodId
     var FoodName: String = pFoodName
 }
 
 public class User(
-    var pUserId: Int,
-    var pUserName: String,
-    var pEmail: String,
-    var pPassword: String
+     pUserId: Int,
+     pUserName: String,
+     pEmail: String,
+     pPassword: String
 ) {
     var UserId: Int = pUserId
     var UserName: String = pUserName
@@ -162,10 +162,10 @@ public class FavShop(var pUserId: Int, var pShopId: Int) {
 }
 
 public class DBOjects() : AppCompatActivity() {
-    public var coffeeShops: ArrayList<CoffeeShop> = arrayListOf()
-    public var foods: ArrayList<Food> = arrayListOf()
-    public var users: ArrayList<User> = arrayListOf()
-    public var favoriteFoods: ArrayList<FavFood> = arrayListOf()
-    public var favoriteCoffeeShops: ArrayList<FavShop> = arrayListOf()
-    public var sample: String = "this is the sample string"
+    var coffeeShops: ArrayList<CoffeeShop> = arrayListOf()
+    var foods: ArrayList<Food> = arrayListOf()
+    var users: ArrayList<User> = arrayListOf()
+    var favoriteFoods: ArrayList<FavFood> = arrayListOf()
+    var favoriteCoffeeShops: ArrayList<FavShop> = arrayListOf()
+    var sample: String = "this is the sample string"
 }

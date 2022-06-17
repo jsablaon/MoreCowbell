@@ -72,18 +72,23 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
 
         val goToMenuButton = findViewById<Button>(R.id.GoToMenu)
-        goToMenuButton.setOnClickListener{
+        goToMenuButton.setOnClickListener {
             println("++++++++++++++++++++marker id: ${markerId}")
-            if(markerId != -1){
+            if (markerId != -1) {
 //                menuSelected = dbObj.foods[markerId-1]
 //                Toast.makeText(this, "${menuSelected.FoodName}", Toast.LENGTH_SHORT).show()
-                // TODO: navigate to menu activity to display menu
-            val intent = Intent(this, ShopActivity::class.java)
-//            intent.putExtra("selectedShop", dbObj.coffeeShops[markerId])
-//            intent.putExtra("selectedShopMenu", dbObj.Menus[markerId])  //*** navigate to mock menu page
-            startActivity(intent)
+
+                val intent = Intent(this, ShopActivity::class.java)
+                var shopName = dbObj.coffeeShops[markerId - 1].ShopName
+                println("++++++++++++++++++++++++++coffee shop name: ${shopName}++++++++++++++++++++++++++++++++")
+                intent.putExtra("selectedShop", shopName)
+                intent.putExtra("selectedFood", menuSelected.FoodName)
+//                intent.putParcelableArrayListExtra("foodArray", foodArr)
+//                intent.putExtra("selectedShopMenu", dbObj.Menus[markerId])  //*** navigate to mock menu page
+                startActivity(intent)
             } else {
-                Toast.makeText(this, "Please select a coffee shop to view menu", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please select a coffee shop to view menu", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
 
@@ -156,7 +161,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             latitude = item.Latitude
             longitude = item.Longitude
             var currentMarker = LatLng(latitude, longitude)
-            map.addMarker(MarkerOptions().position(currentMarker).title(item.ShopName))?.tag = item.ShopId
+            map.addMarker(MarkerOptions().position(currentMarker).title(item.ShopName))?.tag =
+                item.ShopId
             map.setOnMarkerClickListener(this)
         }
 
@@ -166,11 +172,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         enableMyLocation()
     }
 
-    override fun onMarkerClick(marker: Marker) : Boolean {
+    override fun onMarkerClick(marker: Marker): Boolean {
         markerId = marker.tag.toString().toInt()
-        if(markerId != null){
+        if (markerId != null) {
             println("+++++++++++++++++++++++++++++++++++++++marker tag: ${markerId}")
-            menuSelected = dbObj.foods[markerId-1]
+            menuSelected = dbObj.foods[markerId - 1]
             Toast.makeText(this, "${menuSelected.FoodName}", Toast.LENGTH_SHORT).show()
         }
         return false
