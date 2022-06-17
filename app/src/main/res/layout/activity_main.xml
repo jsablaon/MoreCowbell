@@ -8,46 +8,165 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary" />
+            android:layout_height="?attr/actionBarSize" />
 
-        <!-- uses nav_graph.xml as its navigation graph -->
-        <TextView
-            android:id="@+id/txt_address"
-            android:layout_width="93dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/toolbar"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="center"
-            android:layout_marginTop="43dp"
-            android:layout_marginEnd="153dp"
-            android:text="Coffee shops around us :)"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+
+        // uses nav_graph.xml as its navigation graph
+
 
         <Button
             android:id="@+id/btn_map_activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_address"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="45dp"
-            android:layout_marginEnd="132dp"
-            android:layout_gravity="center"
-            android:text="Let's Search!"
+            android:text="DISCOVER"
+            android:layout_margin="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/welcome_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10sp"
+            android:paddingBottom="10sp"
+            android:text="WELCOME USER_NAME"
+            android:textAlignment="center" />
+
+        <RadioButton
+            android:id="@+id/fav_1_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="35sp"
+            android:paddingTop="10sp"
+            android:paddingBottom="10sp"
+            android:text="FAVORITE SHOP 1"
+            android:textSize="18dp"/>
+
+        <Button
+            android:id="@+id/btn_menu_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35sp"
+            android:text="Menu" />
+
+        <TextView
+            android:id="@+id/fav_1_flavor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="50sp"
+            android:paddingBottom="10sp"
+            android:text="FAV_1_FLAVOR"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fav_1_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="50sp"
+            android:paddingBottom="10sp"
+            android:text="FAV_1_ADDRESS"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioButton
+            android:id="@+id/fav_2_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="35sp"
+            android:paddingTop="10sp"
+            android:paddingBottom="10sp"
+            android:text="FAVORITE SHOP 2"
+            android:textSize="18dp"/>
+
+        <Button
+            android:id="@+id/btn_menu_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35sp"
+            android:text="Menu" />
+
+        <TextView
+            android:id="@+id/fav_2_flavor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="50sp"
+            android:paddingBottom="10sp"
+            android:text="FAV_2_FLAVOR"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fav_2_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="50sp"
+            android:paddingBottom="10sp"
+            android:text="FAV_2_ADDRESS"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioButton
+            android:id="@+id/fav_3_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="35sp"
+            android:paddingTop="10sp"
+            android:paddingBottom="10sp"
+            android:text="FAVORITE SHOP 3"
+            android:textSize="18dp"/>
+
+        <Button
+            android:id="@+id/btn_menu_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35sp"
+            android:text="Menu" />
+
+        <TextView
+            android:id="@+id/fav_3_flavor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="50sp"
+            android:paddingBottom="10sp"
+            android:text="FAV_3_FLAVOR"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fav_3_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="50sp"
+            android:paddingBottom="10sp"
+            android:text="FAV_3_ADDRESS"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/nav_host_fragment"
@@ -55,11 +174,20 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:visibility="gone"
             app:defaultNavHost="true"
             app:navGraph="@navigation/nav_graph" />
-    </RelativeLayout>
 
-    <!-- defines the content of the drawer -->
+        <Button
+            android:id="@+id/btn_bring_sample"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+    </LinearLayout>
+
+    // defines the content of the drawer
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
@@ -67,4 +195,5 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/menu_drawer"/>
+
 </androidx.drawerlayout.widget.DrawerLayout>
