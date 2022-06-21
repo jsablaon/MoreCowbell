@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -46,11 +47,6 @@ public class MainActivity : AppCompatActivity() {
             startActivity(intent);
         }
 
-
-
-
-
-
         //this invisible button is clicked 1 second after loading the page, and will populate the page
         var btn_bring_sample = findViewById(R.id.btn_bring_sample) as Button
         btn_bring_sample.setOnClickListener {
@@ -60,7 +56,7 @@ public class MainActivity : AppCompatActivity() {
             //We can redirect it to pull from the person who logged in once we figure that out.
             val userName = dbObj.users[0].UserName
 
-            val welcome_user : TextView = findViewById(R.id.welcome_user) as TextView
+            val welcome_user: TextView = findViewById(R.id.welcome_user) as TextView
             welcome_user.text = "Welcome, " + userName
 
 
@@ -72,19 +68,17 @@ public class MainActivity : AppCompatActivity() {
             val shop2name = dbObj.coffeeShops[1].ShopName
             val shop3name = dbObj.coffeeShops[2].ShopName
 
-            val textViewShop1 : TextView = findViewById(R.id.fav_1_name) as TextView
+            val textViewShop1: TextView = findViewById(R.id.fav_1_name) as TextView
             textViewShop1.text = shop1name
 
-            val textViewShop2 : TextView = findViewById(R.id.fav_2_name) as TextView
+            val textViewShop2: TextView = findViewById(R.id.fav_2_name) as TextView
             textViewShop2.text = shop2name
 
-            val textViewShop3 : TextView = findViewById(R.id.fav_3_name) as TextView
+            val textViewShop3: TextView = findViewById(R.id.fav_3_name) as TextView
             textViewShop3.text = shop3name
 
             //sample code that will hide an element in case it needs to be gone
             //textViewShop3.setVisibility(View.GONE);
-
-
         }
 
         //sample code that will lead to the menu page
@@ -95,15 +89,21 @@ public class MainActivity : AppCompatActivity() {
         //    startActivity(intent);
         //}
 
+        var ibHeart: ImageButton = findViewById<ImageButton>(R.id.ibHeart)
+        var ibHeart_2: ImageButton = findViewById<ImageButton>(R.id.ibHeart_2)
+        var ibHeart_3: ImageButton = findViewById<ImageButton>(R.id.ibHeart_3)
 
+        ibHeart.setOnClickListener {
+            ibHeart.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
+        }
 
+        ibHeart_2.setOnClickListener {
+            ibHeart_2.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
+        }
 
-
-
-
-
-
-
+        ibHeart_3.setOnClickListener {
+            ibHeart_3.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
+        }
 
         // toolbar
         val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
@@ -126,14 +126,9 @@ public class MainActivity : AppCompatActivity() {
         val appBarConfiguration = builder.build()
         toolbar.setupWithNavController(navController, appBarConfiguration)
 
-
         //this Handler method automatically clicks the button one second after the app navigates here.
         //Beware that setting the delay below 1000ms can cause errors since the page doesn't get a chance to load.
         Handler().postDelayed(Runnable { btn_bring_sample.performClick() }, 1000)
-
-
-
-
     }
 
 
