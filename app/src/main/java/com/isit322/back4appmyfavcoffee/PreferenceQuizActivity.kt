@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.parse.Parse
 import com.parse.ParseException
 import com.parse.ParseObject
 import com.parse.SaveCallback
@@ -22,6 +23,18 @@ class PreferenceQuizActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        try {
+            Parse.initialize(
+                Parse.Configuration.Builder(this)
+                    .applicationId(getString(R.string.back4app_app_id))
+                    .clientKey(getString(R.string.back4app_client_key))
+                    .server(getString(R.string.back4app_server_url))
+                    .build()
+            );
+        } catch (err: Exception) {
+            println("++++++++++++++++++++++++++++++++++connectDb error: ${err.message}+++++++++++++++++++++++++++++++++++++++++++++")
+        }
 
         setContentView(R.layout.activity_preference_quiz)
 

@@ -58,11 +58,12 @@ class ActivityLoginTest {
     }
 
     @Test
-    fun test_Login() {
+    fun Login_ShouldLaunchUserToPrefQuiz() {
         onView(withId(R.id.username)).perform(ViewActions.typeText("UserName"),ViewActions.closeSoftKeyboard())
         onView(withId(R.id.password)).perform(ViewActions.typeText("password"),ViewActions.closeSoftKeyboard())
         onView(withId(R.id.login)).perform(click())
-        onView(withId(R.id.btn_map_activity)).check(matches(ViewMatchers.isDisplayed()))
+        onView(withId(R.id.coffeeGroup)).check(matches(ViewMatchers.isDisplayed()))
+
     }
 
 }
