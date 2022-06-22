@@ -6,9 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -21,12 +19,12 @@ import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.navigation.NavigationView
-import com.isit322.back4appmyfavcoffee.data.model.LoggedInUser
 
 
 public class MainActivity : AppCompatActivity() {
 
-
+    lateinit var dbObj: DBOjects
+    lateinit var helper: DbHelper
 
     @RequiresApi(api = Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,16 +32,27 @@ public class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
+        dbObj = DBOjects()
+        helper = DbHelper()
+
+        dbObj.users = helper.getUsers()
+
         var btn_map_activity = findViewById(R.id.btn_map_activity) as Button
         btn_map_activity.setOnClickListener {
             val intent = Intent(this@MainActivity, MapsActivity::class.java)
             startActivity(intent);
         }
 
-        val userName = "PLACEHOLDER"
+        //this invisible button is clicked 1 second after loading the page, and will populate the page
+        var btn_bring_sample = findViewById(R.id.btn_bring_sample) as Button
+        btn_bring_sample.setOnClickListener {
+            //        val userName = "PLACEHOLDER"
+        val userName = dbObj.users[0].UserName
 
         val welcome_user: TextView = findViewById(R.id.welcome_user) as TextView
         welcome_user.text = "Welcome, " + userName
+        }
+
 
         // toolbar
         val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
@@ -66,7 +75,7 @@ public class MainActivity : AppCompatActivity() {
         val appBarConfiguration = builder.build()
         toolbar.setupWithNavController(navController, appBarConfiguration)
 
-
+        Handler().postDelayed(Runnable { btn_bring_sample.performClick() }, 1000)
     }
 
 

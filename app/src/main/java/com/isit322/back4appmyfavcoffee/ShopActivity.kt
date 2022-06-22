@@ -2,10 +2,7 @@ package com.isit322.back4appmyfavcoffee
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.appbar.MaterialToolbar
 
@@ -32,6 +29,17 @@ class ShopActivity : AppCompatActivity() {
 //            var checkBox4 = findViewById<CheckBox>(R.id.itemCheckBox4).text
 
         }
+
+        var shopLogo = findViewById<ImageView>(R.id.shopLogo)
+
+        if(shopName == "Capitol Coffee Works"){
+            shopLogo.setImageResource(R.drawable.capitolcoffeelogo)
+        }
+
+        if(shopName == "Cascade Coffee Works"){
+            shopLogo.setImageResource(R.drawable.cascadecoffeelogo)
+        }
+
 
         // toolbar
         val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
