@@ -15,6 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFavCoffee">
         <activity
+            android:name=".MainActivityFav"
+            android:exported="false"
+            android:label="@string/title_activity_main_fav"
+            android:theme="@style/Theme.MyFavCoffee.NoActionBar" />
+        <activity
             android:name=".ShopActivity"
             android:exported="false" />
         <activity

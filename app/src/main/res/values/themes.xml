@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.MyFavCoffee" parent="Theme.MaterialComponents.DayNight.NoActionBar"> // removes the default app bar
+    <style name="Theme.MyFavCoffee" parent="Theme.MaterialComponents.DayNight.NoActionBar">//
+        removes the default app bar
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/brown</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -13,4 +14,13 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.MyFavCoffee.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MyFavCoffee.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MyFavCoffee.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

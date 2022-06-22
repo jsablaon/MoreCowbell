@@ -22,6 +22,33 @@
 
         <!-- uses nav_graph.xml as its navigation graph -->
 
+        <TextView
+            android:id="@+id/welcome_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10sp"
+            android:paddingBottom="10sp"
+            android:paddingTop="20sp"
+            android:text="WELCOME USER_NAME"
+            android:fontFamily="@font/judson"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/empty_favorites"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="50sp"
+            android:paddingRight="50sp"
+            android:paddingBottom="10sp"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/judson"
+            android:text="You haven't added any items to your favorites. Head on over to the map to discover coffee shops in your area!"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/btn_map_activity"
             android:layout_width="wrap_content"
@@ -31,174 +58,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/welcome_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10sp"
-            android:paddingBottom="10sp"
-            android:text="WELCOME USER_NAME"
-            android:textAlignment="center" />
-
-        <RadioButton
-            android:id="@+id/fav_1_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="35sp"
-            android:paddingTop="10sp"
-            android:paddingBottom="10sp"
-            android:text="FAVORITE SHOP 1"
-            android:textSize="18dp" />
-
-        <ImageButton
-            android:id="@+id/ibHeart"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:layout_below="@id/welcome_user"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="12dp"
-            android:src="@drawable/ic_baseline_favorite_24"
-            app:tint="@color/black" />
-
-        <Button
-            android:id="@+id/btn_menu_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="35sp"
-            android:text="Menu" />
-
-        <TextView
-            android:id="@+id/fav_1_flavor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="50sp"
-            android:paddingBottom="10sp"
-            android:text="FAV_1_FLAVOR"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/fav_1_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="50sp"
-            android:paddingBottom="10sp"
-            android:text="FAV_1_ADDRESS"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <RadioButton
-            android:id="@+id/fav_2_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="35sp"
-            android:paddingTop="10sp"
-            android:paddingBottom="10sp"
-            android:text="FAVORITE SHOP 2"
-            android:textSize="18dp"/>
-
-        <ImageButton
-            android:id="@+id/ibHeart_2"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:layout_below="@id/welcome_user"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="12dp"
-            android:src="@drawable/ic_baseline_favorite_24"
-            app:tint="@color/black" />
-
-        <Button
-            android:id="@+id/btn_menu_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="35sp"
-            android:text="Menu" />
-
-        <TextView
-            android:id="@+id/fav_2_flavor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="50sp"
-            android:paddingBottom="10sp"
-            android:text="FAV_2_FLAVOR"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/fav_2_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="50sp"
-            android:paddingBottom="10sp"
-            android:text="FAV_2_ADDRESS"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <RadioButton
-            android:id="@+id/fav_3_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="35sp"
-            android:paddingTop="10sp"
-            android:paddingBottom="10sp"
-            android:text="FAVORITE SHOP 3"
-            android:textSize="18dp"/>
-
-        <ImageButton
-            android:id="@+id/ibHeart_3"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:layout_below="@id/welcome_user"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="12dp"
-            android:src="@drawable/ic_baseline_favorite_24"
-            app:tint="@color/black" />
-
-        <Button
-            android:id="@+id/btn_menu_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="35sp"
-            android:text="Menu" />
-
-        <TextView
-            android:id="@+id/fav_3_flavor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="50sp"
-            android:paddingBottom="10sp"
-            android:text="FAV_3_FLAVOR"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/fav_3_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="50sp"
-            android:paddingBottom="10sp"
-            android:text="FAV_3_ADDRESS"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
 
 
