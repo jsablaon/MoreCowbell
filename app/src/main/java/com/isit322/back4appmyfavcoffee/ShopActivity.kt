@@ -10,9 +10,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.appbar.MaterialToolbar
 
 class ShopActivity : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shop)
+
 
         // grab shop name from maps intent
         var shopName = intent.getStringExtra("selectedShop")
@@ -37,13 +40,12 @@ class ShopActivity : AppCompatActivity() {
         val update_btn = findViewById<Button>(R.id.updateButton)
         update_btn.setOnClickListener {
             Toast.makeText(this, "Your selection has been updated!", Toast.LENGTH_SHORT).show()
-
-
         }
+
 
         val home_btn = findViewById<Button>(R.id.shopHomeButton)
         home_btn.setOnClickListener {
-            val intent = Intent(this@ShopActivity, MainActivity::class.java)
+            val intent = Intent(this@ShopActivity, MainActivityFav::class.java)
             startActivity(intent)
             finish()
         }

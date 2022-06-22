@@ -203,7 +203,7 @@ class PreferenceQuizActivity : AppCompatActivity() {
 
         button.setOnClickListener {
 
-            Toast.makeText(this, "Thank you we received your request", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Thank you for filling out our quiz!", Toast.LENGTH_SHORT).show()
 
 
 //            val intSelectButton: Int = radioGroup!!.checkedRadioButtonId

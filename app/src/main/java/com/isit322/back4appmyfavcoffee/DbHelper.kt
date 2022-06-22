@@ -168,4 +168,11 @@ public class DBOjects() : AppCompatActivity() {
     var favoriteFoods: ArrayList<FavFood> = arrayListOf()
     var favoriteCoffeeShops: ArrayList<FavShop> = arrayListOf()
     var sample: String = "this is the sample string"
+    var testBoolean: Boolean = false
+}
+
+public class TestBoolean(
+    pFavorite: Boolean
+) {
+    var Favorite: Boolean = pFavorite
 }

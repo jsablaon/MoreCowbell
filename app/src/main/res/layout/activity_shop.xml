@@ -44,7 +44,7 @@
         android:id="@+id/favoriteCheckBox"
         android:layout_width="118dp"
         android:layout_height="61dp"
-        android:checked="true"
+        android:checked="false"
         android:fontFamily="@font/judson"
         android:text="Favorite"
         android:textSize="18dp"
