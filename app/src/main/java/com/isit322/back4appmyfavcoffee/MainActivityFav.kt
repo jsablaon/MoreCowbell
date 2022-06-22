@@ -6,9 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +25,10 @@ public class MainActivityFav : AppCompatActivity() {
 
     lateinit var dbObj: DBOjects
     lateinit var helper: DbHelper
+
+    lateinit var shop1name: String
+    lateinit var shop2name: String
+    lateinit var shop3name: String
 
     @RequiresApi(api = Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,9 +72,9 @@ public class MainActivityFav : AppCompatActivity() {
             //We can easily change this to pull from the favorites with a couple more operations.
 
             //println("++++++++++${dbObj.coffeeShops[0].ShopName}+++++++++++")
-            val shop1name = dbObj.coffeeShops[0].ShopName
-            val shop2name = dbObj.coffeeShops[1].ShopName
-            val shop3name = dbObj.coffeeShops[2].ShopName
+            shop1name = dbObj.coffeeShops[0].ShopName
+            shop2name = dbObj.coffeeShops[1].ShopName
+            shop3name = dbObj.coffeeShops[2].ShopName
 
             val textViewShop1: TextView = findViewById(R.id.fav_1_name) as TextView
             textViewShop1.text = shop1name
@@ -107,6 +109,24 @@ public class MainActivityFav : AppCompatActivity() {
         var btn_menu_1 = findViewById(R.id.btn_menu_1) as Button
         btn_menu_1.setOnClickListener {
             val intent = Intent(this@MainActivityFav, ShopActivity::class.java)
+            intent.putExtra("selectedShop", shop1name)
+            intent.putExtra("selectedFood", dbObj.foods[0].FoodName)
+            startActivity(intent);
+        }
+
+        var btn_menu_2 = findViewById(R.id.btn_menu_2) as Button
+        btn_menu_2.setOnClickListener {
+            val intent = Intent(this@MainActivityFav, ShopActivity::class.java)
+            intent.putExtra("selectedShop", shop2name)
+            intent.putExtra("selectedFood", dbObj.foods[1].FoodName)
+            startActivity(intent);
+        }
+
+        var btn_menu_3 = findViewById(R.id.btn_menu_3) as Button
+        btn_menu_3.setOnClickListener {
+            val intent = Intent(this@MainActivityFav, ShopActivity::class.java)
+            intent.putExtra("selectedShop", shop3name)
+            intent.putExtra("selectedFood", dbObj.foods[2].FoodName)
             startActivity(intent);
         }
 

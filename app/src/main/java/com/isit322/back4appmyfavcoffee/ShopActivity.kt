@@ -20,10 +20,10 @@ class ShopActivity : AppCompatActivity() {
         // grab shop name from maps intent
         var shopName = intent.getStringExtra("selectedShop")
         var foodName = intent.getStringExtra("selectedFood")
-        val shopNameTextView = findViewById<TextView>(R.id.shopName).apply {
+        var shopNameTextView = findViewById<TextView>(R.id.shopName).apply {
             text = shopName
         }
-        val foodNameCheckbox = findViewById<CheckBox>(R.id.itemCheckBox1).apply {
+        var foodNameCheckbox = findViewById<CheckBox>(R.id.itemCheckBox1).apply {
             text = foodName
 
 //            TODO: if current foodName is already displayed in checkboxes, change to different item
